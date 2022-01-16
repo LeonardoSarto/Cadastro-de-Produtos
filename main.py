@@ -1,4 +1,4 @@
-import products.productsCreation as cadastro
+import cadastro.cadastroProdutos as cadastro
 
 print("--------Menu temporário--------")
 print("1. Criar um arquivo")

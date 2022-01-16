@@ -1,42 +1,44 @@
+import os
 
+#///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def abrirItem(produto):
+def consultarItem(produto):
     try:
-        a = open(produto, 'rt')
-        a.close()
-    except FileNotFoundError:
-        return False
-    else:
-        return True
-
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-def criarItem(produto):
-    try:
-        a = open(produto + ".txt", 'a')
-        a.close()
+        arquivo = open(produto + ".txt", 'rt')
     except:
         print ('Erro')
     else:
-        print ( produto + ' ' + 'Criado com sucesso')
+        print (arquivo.read())
 
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-def lerItem(produto):
-    try:
-        a = open(produto + ".txt", 'rt')
-    except:
-        print ('Erro')
-    else:
-        print (a.read())
-
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 def editarItem(produto):
     try:
-        a = open(produto + ".txt", 'a')
+        arquivo = open(produto + ".txt", 'a')
     except:
         print ('Erro')
     else:
-        descricao = input("Digite a descrição do produto")
-        a.writelines(descricao)
+        descricao = input("Digite a descrição do produto: ")
+        arquivo.writelines("\n" + descricao)
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def criarItem(produto):
+    try:
+        arquivo = open(produto + ".txt", 'at')
+    except:
+        print ('Erro')
+    else:
+
+        arquivo.writelines(input('\nCadastre um novo item\n'))
+        arquivo.close()
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def deletarItem(produto):
+    try:
+        os.remove(produto + ".txt")
+    except:
+        print("Erro")
+
+#///////////////////////////////////////////////////////////////////////////////////////////////////////

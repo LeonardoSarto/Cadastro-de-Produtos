@@ -5,4 +5,4 @@ def criarArquivo(nome):
     except:
         print("Houve um erro na criação do arquivo")
     else:
-        print("Arquivo {nome} criado com sucesso")
+        print("Arquivo {nome} criado com sucesso aaa")

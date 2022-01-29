@@ -23,14 +23,13 @@ def editarItem(produto):
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def criarItem(produto):
+def criarProduto():
     try:
-        arquivo = open(produto + ".txt", 'at')
+        arquivo = open("Cadastro_De_Produtos.txt", 'at')
     except:
         print ('Erro')
     else:
-
-        arquivo.writelines(input('\nCadastre um novo item\n'))
+        arquivo.writelines("\n" + input('\nCadastre um novo produto\n'))
         arquivo.close()
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -11,7 +11,7 @@ print("------------------------")
 menu = int(input("\nDigite a opção: "))
 if menu == 1:
     produto = input("\nDigite o nome do arquivo para criar: ")
-    cadastro.criarItem(produto)
+    cadastro.criarProduto()
 elif menu == 2:
     produto = input("\nDigite o nome do arquivo para editar: ")
     cadastro.editarItem(produto)

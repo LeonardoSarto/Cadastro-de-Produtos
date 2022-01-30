@@ -11,10 +11,12 @@ print("------------------------")
 menu = int(input("\nDigite a opção: "))
 if menu == 1:
     produto = input("\nDigite o nome do arquivo para criar: ")
-    cadastro.criarProduto()
+    cadastro.criarProduto(produto)
 elif menu == 2:
     produto = input("\nDigite o nome do arquivo para editar: ")
+    cadastro.consultarItem(produto)
     cadastro.editarItem(produto)
+    cadastro.consultarItem(produto)
 elif menu == 3:
     produto = input("\nDigite o nome do arquivo para consultar: ")
     cadastro.consultarItem(produto)

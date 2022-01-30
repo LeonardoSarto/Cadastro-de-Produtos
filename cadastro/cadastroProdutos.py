@@ -13,19 +13,28 @@ def consultarItem(produto):
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 def editarItem(produto):
-    try:
-        arquivo = open(produto + ".txt", 'a')
-    except:
-        print ('Erro')
-    else:
-        descricao = input("Digite a descrição do produto: ")
-        arquivo.writelines("\n" + descricao)
+    # with is like your try .. finally block in this case
+    with open(produto + ".txt", 'r') as file:
+        # read a list of lines into data
+        data = file.readlines()
+        file.close()
+
+    linha = int(input('Digite a linha que deseja Editar:'))
+    produto_novo = input('Digite as informações que deseja sobrepor:')
+
+    data[linha] = (produto_novo+'\n')
+
+    # and write everything back
+    with open(produto + ".txt", 'w') as file:
+        file.writelines( data )
+        file.close()
+    
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def criarProduto():
+def criarProduto(produto):
     try:
-        arquivo = open("Cadastro_De_Produtos.txt", 'at')
+        arquivo = open(produto + ".txt", 'at')
     except:
         print ('Erro')
     else:

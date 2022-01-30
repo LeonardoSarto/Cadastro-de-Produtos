@@ -1,28 +1,23 @@
 import cadastro.cadastroProdutos as cadastro
 
 print("--------Menu temporário--------")
-print("1. Criar um arquivo")
-print("2. Editar um arquivo")
-print("3. Consultar um arquivo")
-print("4. Excluir um arquivo")
+print("1. Criar um produto")
+print("2. Editar um produto")
+print("3. Consultar um produto")
+print("4. Excluir um produto")
 print("5. Sair do programa")
 print("------------------------")
 
 menu = int(input("\nDigite a opção: "))
 if menu == 1:
-    produto = input("\nDigite o nome do arquivo para criar: ")
-    cadastro.criarProduto(produto)
+    cadastro.criarProduto()
 elif menu == 2:
-    produto = input("\nDigite o nome do arquivo para editar: ")
-    cadastro.consultarItem(produto)
-    cadastro.editarItem(produto)
-    cadastro.consultarItem(produto)
+    cadastro.consultarItem()
+    cadastro.editarItem()
+    cadastro.consultarItem()
 elif menu == 3:
-    produto = input("\nDigite o nome do arquivo para consultar: ")
-    cadastro.consultarItem(produto)
+    cadastro.consultarItem()
 elif menu == 4:
-    produto = input("\nDigite o nome do arquivo para excluir: ")
-    cadastro.deletarItem(produto)
-
+    cadastro.deletarItem()
 elif menu == 5:
     exit()

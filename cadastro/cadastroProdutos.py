@@ -1,10 +1,8 @@
-import os
-
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def consultarItem(produto):
+def consultarItem():
     try:
-        arquivo = open(produto + ".txt", 'rt')
+        arquivo = open("Cadastro_de_Produtos.txt", 'rt')
     except:
         print ('Erro')
     else:
@@ -12,9 +10,9 @@ def consultarItem(produto):
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def editarItem(produto):
+def editarItem():
     # with is like your try .. finally block in this case
-    with open(produto + ".txt", 'r') as file:
+    with open("Cadastro_de_Produtos.txt", 'r') as file:
         # read a list of lines into data
         data = file.readlines()
         file.close()
@@ -25,27 +23,39 @@ def editarItem(produto):
     data[linha] = (produto_novo+'\n')
 
     # and write everything back
-    with open(produto + ".txt", 'w') as file:
+    with open("Cadastro_de_Produtos.txt", 'w') as file:
         file.writelines( data )
         file.close()
     
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def criarProduto(produto):
+def criarProduto():
     try:
-        arquivo = open(produto + ".txt", 'at')
+        arquivo = open("Cadastro_de_Produtos.txt", 'at')
     except:
         print ('Erro')
     else:
-        arquivo.writelines("\n" + input('\nCadastre um novo produto\n'))
+        arquivo.writelines('\n' + input('Cadastre um novo produto: '))
         arquivo.close()
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def deletarItem(produto):
+def deletarItem():
     try:
-        os.remove(produto + ".txt")
+        with open("Cadastro_de_Produtos.txt", 'r') as file:
+        # read a list of lines into data
+            data = file.readlines()
+            file.close()
+
+        linha = int(input('Digite a linha que deseja Editar:'))
+
+        data[linha] = " "
+
+        # and write everything back
+        with open("Cadastro_de_Produtos.txt", 'w') as file:
+            file.writelines(data)
+            file.close()
     except:
         print("Erro")
 

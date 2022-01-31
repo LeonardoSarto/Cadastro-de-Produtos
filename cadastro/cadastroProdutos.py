@@ -17,8 +17,8 @@ def editarItem():
         data = file.readlines()
         file.close()
 
-    linha = int(input('Digite a linha que deseja Editar:'))
-    produto_novo = input('Digite as informações que deseja sobrepor:')
+    linha = int(input('Digite a linha que deseja editar: '))
+    produto_novo = input('Digite as informações que deseja sobrepor: ')
 
     data[linha] = (produto_novo+'\n')
 
@@ -48,7 +48,7 @@ def deletarItem():
             data = file.readlines()
             file.close()
 
-        linha = int(input('Digite a linha que deseja Editar:'))
+        linha = int(input('Digite a linha que deseja excluir: '))
 
         data[linha] = " "
 
